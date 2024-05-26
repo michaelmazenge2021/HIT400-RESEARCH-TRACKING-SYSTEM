@@ -1,0 +1,2 @@
+  @emotion/react   @emotion/styled  @material-ui/styles  @mui/base ^5.0.  @mui/icons-material  @mui/material  @testing-library/jest-dom   @testing-library/react  @testing-library/user-event  antd  axios
+ jwt-decode react  react-dom  react-router-dom  react-scripts react-toastify web-vitals 

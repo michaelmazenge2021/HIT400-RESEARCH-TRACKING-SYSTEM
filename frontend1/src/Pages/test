@@ -1,0 +1,517 @@
+<h3 className={classes.h3}>Filter</h3>
+           <ul className={classes.Ul}>
+            <h5 className={classes.h5}>Level</h5>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Ground Floor</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>First Floor</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Second Floor</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Other</a></li>
+           </ul>
+           <ul className={classes.Ul}>
+            <h5 className={classes.h5}>Year of Study</h5>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>First Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Second Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Third Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Forth Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Other</a></li>
+           
+             </ul>
+             <ul className={classes.Ul}>
+            <h5 className={classes.h5}>Faculty</h5>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>First Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Second Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Third Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Forth Year</a></li>
+             <li className={classes.li}><a className={classes.a}><input type={"checkbox"} className={classes.at}/>Other</a></li>
+           
+             </ul>
+
+
+
+<input value={dormname} onChange={e=>dormnameUpdate(e.target.value)} type={'text'} className={classes.textinput} placeholder={'Name of Dorm'}/>
+ if(dormname ==='' || dormname===null){
+  result=false;
+  toast.warning("Please Enter dormname"
+
+
+
+  const express = require("express");
+const mysql = require("mysql");
+const cors = require("cors");
+//const jwt = require('jsonwebtoken')
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "dms_db",
+});
+
+app.post("/login", (req, res) => {
+  const sql = "SELECT * FROM login WHERE `username` = ? AND `password` = ?";
+
+  db.query(sql, [req.body.username, req.body.password], (err, data) => {
+    if (err) return res.json("error");
+    if (data.length > 0) {
+      const id = data[0].id;
+      const token = jwt.sign({id}, "jwtSecretKey", {expiresIn: 300})
+      return res.json({Login: true, token, data});
+      
+    } else {
+      return res.json("No records");
+    }
+  });
+});
+app.get("/infor", (req, res) => {
+  const sql = "SELECT * FROM login";
+
+  db.query(sql, (err, data) => {
+    if (err) return res.json("error");
+    if (data.length > 0) {
+      return res.json(data);
+    } else {
+      return res.json("No recods");
+    }
+  });
+});
+
+app.listen(8083, () => {
+  console.log("Listening...");
+});
+
+
+axios
+.post("http://localhost:8083/login", { username, password })
+.then((res) => {
+  if (res.data.message) {
+    setLoginStatus(res.data.message);
+  } else {
+    setLoginStatus(res.data[0].username);
+    navigate("/home");
+  }
+})
+.catch((err) => console.log(err));
+}
+}
+useEffect(() => {
+axios.get("http://localhost:8083/login").then((res) => {
+if (res.data.loggedIn === true) {
+setLoginStatus(res.data.user[0].username);
+}
+});
+}, []);
+
+
+sessionStorage.setItem('username', username);
+
+<TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+        />
+
+        <TextField id="filled-basic" label="email" variant="filled" 
+        onChange={(e) => usernameUpdate(e.target.value)}
+        type="text"
+        style={{
+          width: "60%",
+          height: "10%",
+          marginTop: "25px",
+          marginLeft: "15%",
+          border: "none",
+          borderRadius: "30px",
+          padding: "3px",
+          color: 'white',
+          backgroundColor: 'white'
+        }}
+        
+
+/>
+<Paper elevation={3} >
+
+
+
+
+
+
+
+
+export default function ThemeNesting() {
+  return (
+    <ThemeProvider theme={outerTheme}>
+      <Checkbox defaultChecked />
+      <ThemeProvider theme={innerTheme}>
+        <Checkbox defaultChecked />
+      </ThemeProvider>
+    </ThemeProvider>
+  );
+}
+
+const outerTheme = createTheme({
+    palette: {
+      primary: {
+        main: 'white',
+      },
+    },
+  });
+  
+  const innerTheme = createTheme({
+    palette: {
+      primary: {
+        main: 'black',
+      },
+    },
+  });
+
+
+import Alert from '@mui/material/Alert';
+
+<Stack sx={{ width: '100%' }} spacing={2}>
+      <Alert severity="success">This is a success Alert.</Alert>
+      <Alert severity="info">This is an info Alert.</Alert>
+      <Alert severity="warning">This is a warning Alert.</Alert>
+      <Alert severity="error">This is an error Alert.</Alert>
+    </Stack>
+
+
+
+    import * as React from 'react';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
+export default function DescriptionAlerts() {
+  return (
+    <Stack sx={{ width: '100%' }} spacing={2}>
+      <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+        This is a success Alert with an encouraging title.
+      </Alert>
+      <Alert severity="info">
+        <AlertTitle>Info</AlertTitle>
+        This is an info Alert with an informative title.
+      </Alert>
+      <Alert severity="warning">
+        <AlertTitle>Warning</AlertTitle>
+        This is a warning Alert with a cautious title.
+      </Alert>
+      <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+        This is an error Alert with a scary title.
+      </Alert>
+    </Stack>
+  );
+}
+
+
+c
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Checkbox from '@mui/material/Checkbox';
+import { green, orange } from '@mui/material/colors';
+import { Button, Alert , AlertTitle, TextField, InputAdornment, IconButton} from "@mui/material";
+
+import Box from '@mui/material/Box';
+
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+const outerTheme = createTheme({
+  palette: {
+    primary: {
+      main: orange[500],
+    },
+  },
+});
+
+const innerTheme = createTheme({
+  palette: {
+    primary: {
+      main: green[500],
+    },
+  },
+});
+
+export default function ThemeNesting() {
+
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+  
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
+  return (
+    <ThemeProvider theme={outerTheme}>
+      <Checkbox defaultChecked />
+      <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            type={showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            style={{
+                width: "70%",
+                height: "11%",
+                marginTop: "25px",
+                marginLeft: "15%",
+                border: "none",
+                borderRadius: "30px",
+                padding: "3px",
+                color: 'white',
+                marginBottom: "25px",
+                
+              }}
+            label="Password"
+          />
+      <ThemeProvider theme={innerTheme}>
+        <Checkbox defaultChecked />
+      </ThemeProvider>
+    </ThemeProvider>
+  );
+}
+
+
+
+
+export default function SimpleBackdrop() {
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>Show backdrop</Button>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </div>
+  );
+}
+
+
+
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import PersonIcon from '@mui/icons-material/Person';
+import AddIcon from '@mui/icons-material/Add';
+import Typography from '@mui/material/Typography';
+import { blue } from '@mui/material/colors';
+
+const emails = ['username@gmail.com', 'user02@gmail.com'];
+
+function SimpleDialog(props) {
+  const { onClose, selectedValue, open } = props;
+
+  const handleClose = () => {
+    onClose(selectedValue);
+  };
+
+  const handleListItemClick = (value) => {
+    onClose(value);
+  };
+
+  return (
+    <Dialog onClose={handleClose} open={open}>
+      <DialogTitle>Set backup account</DialogTitle>
+      <List sx={{ pt: 0 }}>
+        {emails.map((email) => (
+          <ListItem disableGutters key={email}>
+            <ListItemButton onClick={() => handleListItemClick(email)}>
+              <ListItemAvatar>
+                <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
+                  <PersonIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={email} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        <ListItem disableGutters>
+          <ListItemButton
+            autoFocus
+            onClick={() => handleListItemClick('addAccount')}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <AddIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Add account" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Dialog>
+  );
+}
+
+SimpleDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  selectedValue: PropTypes.string.isRequired,
+};
+
+export default function SimpleDialogDemo() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
+
+  return (
+    <div>
+      <Typography variant="subtitle1" component="div">
+        Selected: {selectedValue}
+      </Typography>
+      <br />
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Open simple dialog
+      </Button>
+      <SimpleDialog
+        selectedValue={selectedValue}
+        open={open}
+        onClose={handleClose}
+      />
+    </div>
+  );
+}
+
+
+
+
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import Fade from '@mui/material/Fade';
+import Slide from '@mui/material/Slide';
+import Grow from '@mui/material/Grow';
+
+function SlideTransition(props) {
+  return <Slide {...props} direction="up" />;
+}
+
+function GrowTransition(props) {
+  return <Grow {...props} />;
+}
+
+export default function TransitionsSnackbar() {
+  const [state, setState] = React.useState({
+    open: false,
+    Transition: Fade,
+  });
+
+  const handleClick = (Transition) => () => {
+    setState({
+      open: true,
+      Transition,
+    });
+  };
+
+  const handleClose = () => {
+    setState({
+      ...state,
+      open: false,
+    });
+  };
+
+  return (
+    <div>
+      <Button onClick={handleClick(GrowTransition)}>Grow Transition</Button>
+      <Button onClick={handleClick(Fade)}>Fade Transition</Button>
+      <Button onClick={handleClick(SlideTransition)}>Slide Transition</Button>
+      <Snackbar
+        open={state.open}
+        onClose={handleClose}
+        TransitionComponent={state.Transition}
+        message="I love snacks"
+        key={state.Transition.name}
+        autoHideDuration={1200}
+      />
+    </div>
+  );
+}
+
+
+
+
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
+import Grid from '@mui/material/Grid';
+
+const variants = ['h1', 'h3', 'body1', 'caption'];
+
+function TypographyDemo(props) {
+  const { loading = false } = props;
+
+  return (
+    <div>
+      {variants.map((variant) => (
+        <Typography component="div" key={variant} variant={variant}>
+          {loading ? <Skeleton /> : variant}
+        </Typography>
+      ))}
+    </div>
+  );
+}
+
+TypographyDemo.propTypes = {
+  loading: PropTypes.bool,
+};
+
+export default function SkeletonTypography() {
+  return (
+    <Grid container spacing={8}>
+      <Grid item xs>
+        <TypographyDemo loading />
+      </Grid>
+      <Grid item xs>
+        <TypographyDemo />
+      </Grid>
+    </Grid>
+  );
+}

@@ -1,0 +1,60 @@
+ [
+    {
+        "title": "Infor.Sci.Tech",
+        "faculty": 6700,
+        "children":[
+            {
+                "title": "Software Engineering",
+                "code": 6701
+            },
+            {
+                "title": "Computer Science",
+                "code": 6703
+            },
+            {
+                "title": "IT",
+                "code": 6702
+            },
+            {
+                "title": "ISA",
+                "code": 6705
+            },
+            {
+                "title": "Infor.Sci.Tech",
+                "code": 6700
+            }
+
+        ]
+    },
+    {
+        "title": "Medical",
+        "faculty": 4001,
+        "children":[
+            {
+                "title": "Pharmacy",
+                "code": 4002
+            },
+            {
+                "title": "Computer Science",
+                "code": 4003
+            },
+            {
+                "title": "IT",
+                "code": 4004
+            },
+            {
+                "title": "Data Analysis",
+                "code": 4005
+            },
+            {
+                "title": "ICT",
+                "code": 4001
+            }
+
+        ]
+    },
+    {
+        "title": "Service",
+        "path":"/"
+    }
+ ]
